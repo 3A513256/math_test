@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.Beta.math_practice.setting">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView_name"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:text="@string/textview" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:hint="@string/請輸入使用者名稱"
+                android:autofillHints="AUTOFILL_HINT_USERNAME"
+                android:inputType="text"
+                android:maxLength="10"/>
+
+            <Button
+                android:id="@+id/confirm"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="@string/確認" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView_gender"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:text="@string/textview" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="75dp">
+
+            <RadioButton
+                android:id="@+id/gender_boy"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="@string/男生" />
+
+            <RadioButton
+                android:id="@+id/gender_girl"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="@string/女生" />
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView_Degree"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:text="@string/textview" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RadioButton
+                android:id="@+id/Degree_easy"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="@string/簡單" />
+
+            <RadioButton
+                android:id="@+id/Degree_difficulty"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="@string/困難" />
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/rst"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="70dp"
+            android:layout_marginBottom="70dp"
+            android:text="@string/離開"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="70dp"
+            android:layout_marginBottom="70dp"
+            android:text="@string/開始遊戲"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

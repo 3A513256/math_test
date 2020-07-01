@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">數學小天才</string>
+    <string name="button1">Button</string>
+    <string name="button2">Button</string>
+    <string name="button3">Button</string>
+    <string name="button4">Button</string>
+    <string name="score">TextView</string>
+    <string name="question">question</string>
+    <string name="開始遊戲">開始遊戲</string>
+    <string name="數學小天才">數學小天才</string>
+    <string name="title_activity_best">BestActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="重設">重設</string>
+    <string name="簡單">簡單</string>
+    <string name="困難">困難</string>
+    <string name="男生">男生</string>
+    <string name="女生">女生</string>
+    <string name="確認">確認</string>
+    <string name="textview">TextView</string>
+    <string name="請輸入使用者名稱">請輸入使用者名稱</string>
+    <string name="離開">離開</string>
+    <string name="新遊戲">新遊戲</string>
+</resources>
