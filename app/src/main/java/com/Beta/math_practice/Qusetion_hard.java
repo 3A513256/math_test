@@ -29,7 +29,7 @@ public class Qusetion_hard{
             {"(A)816","(B)4080","(C)5080","(D)5800"},
     };
 
-    private String mCorrectAnswers1[] = {"(C)5167","(A)422","(C)3.12公里","(D)10700","(C)C×B＋D＝A","(A)可以是銳角"
+    private String mCorrectAnswers1[] = {"(C)5167","(A)422","(C)3.12公里","(D)10700","(C)C×B+D＝A","(A)可以是銳角"
             ,"(B)509000000","(C)40分30秒","(D)5.0001","(A)15和8的公倍數","(B)4080"};
 
     public String getQuestion(int a) {
