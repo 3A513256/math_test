@@ -56,7 +56,7 @@ public class setting extends AppCompatActivity {
         textView_name.setTextSize(30);
         textView_gender.setTextSize(30);
         textView_Degree.setTextSize(30);
-        textView_name.setText("請輸入使用者名稱：");
+        textView_name.setText("\n"+"請輸入使用者名稱：");
         textView_gender.setText("請選擇性別");
         textView_Degree.setText("請選擇難易度");
 
