@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true">
         <activity
-            android:name="com.Beta.math_practice.page1"
+            android:name=".WelComeActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,14 +17,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.Beta.math_practice.MainActivity"
+            android:name=".page1"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.Beta.math_practice.BestActivity"
+            android:name=".BestActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.Beta.math_practice.setting"
-            android:theme="@style/AppTheme.NoActionBar"  />
+            android:name=".setting"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
-
 </manifest>
