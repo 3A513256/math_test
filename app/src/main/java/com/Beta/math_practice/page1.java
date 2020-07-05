@@ -21,7 +21,6 @@ public class page1 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_page1);
-        Button nextPageBtn = (Button)findViewById(R.id.start);
         TextView title;
         Button start;
         start = findViewById(R.id.start);
@@ -38,7 +37,7 @@ public class page1 extends AppCompatActivity {
         title.setTextSize(60);
         title.setGravity(CENTER);
 
-        nextPageBtn.setOnClickListener(new View.OnClickListener() {
+        start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
