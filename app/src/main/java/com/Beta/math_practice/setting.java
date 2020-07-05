@@ -70,24 +70,24 @@ public class setting extends AppCompatActivity {
                 if((Easy==Difficulty)){
                     Toast.makeText(setting.this, "請選擇條件", Toast.LENGTH_SHORT).show();}
                 if(Easy < Difficulty) {
-                    if (name_input == null) {
+                    if ("".equals(name_input.trim())) {
                         Toast.makeText(setting.this, "請輸入使用者名稱", Toast.LENGTH_SHORT).show();
                     } else {
-                        setting.edit().putInt("Degree", 1).commit();
+                        setting.edit().putInt("Degree", 1).apply();
                         intent.setClass(setting.this, MainActivity.class);
                         startActivity(intent);}}
                 if(Easy > Difficulty){
-                    if(name_input==null){
+                    if("".equals(name_input.trim())){
                         Toast.makeText(setting.this, "請輸入使用者名稱", Toast.LENGTH_SHORT).show();}
                     else {
-                        setting.edit().putInt("Degree", 0).commit();
+                        setting.edit().putInt("Degree", 0).apply();
                         intent.setClass(setting.this, MainActivity.class);
                         startActivity(intent);}}
                 //補上性別功能
                 if(boy > girls){
-                    setting.edit().putInt("gender", 1).commit();}
+                    setting.edit().putInt("gender", 1).apply();}
                 if(boy < girls){
-                    setting.edit().putInt("gender", 0).commit();}
+                    setting.edit().putInt("gender", 0).apply();}
 
             }
         });
@@ -105,11 +105,11 @@ public class setting extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 name_input=editText.getText().toString();
-                if(name_input==null){
+
+                if("".equals(name_input.trim())){
                     Toast.makeText(setting.this, "請輸入使用者名稱", Toast.LENGTH_SHORT).show();
-                }else {
-                    Toast.makeText(setting.this, "輸入成功", Toast.LENGTH_SHORT).show();
                 }
+                else Toast.makeText(setting.this, "輸入成功", Toast.LENGTH_SHORT).show();
             }
         });
     }
