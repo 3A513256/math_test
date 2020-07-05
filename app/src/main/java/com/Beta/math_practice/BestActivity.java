@@ -1,6 +1,8 @@
 package com.Beta.math_practice;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
@@ -20,6 +22,7 @@ public class BestActivity extends AppCompatActivity {
     String name1,name2,name3,name0;
     Button button1,button2;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,28 +48,28 @@ public class BestActivity extends AppCompatActivity {
         if (lastScore > best3) {
             best3 = lastScore;
             name3 = name0;
-            score.edit().putInt("best3", best3).commit();
-            setting.edit().putString("name3", name3).commit();
+            score.edit().putInt("best3", best3).apply();
+            setting.edit().putString("name3", name3).apply();
         }
         if (lastScore > best2) {
             int temp = best2;
             best2 = lastScore;
             name2 = name0;
             best3 = temp;
-            score.edit().putInt("best3", best3).commit();
-            score.edit().putInt("best2", best2).commit();
-            setting.edit().putString("name3", name3).commit();
-            setting.edit().putString("name2", name2).commit();
+            score.edit().putInt("best3", best3).apply();
+            score.edit().putInt("best2", best2).apply();
+            setting.edit().putString("name3", name3).apply();
+            setting.edit().putString("name2", name2).apply();
         }
         if (lastScore > best1) {
             int temp = best1;
             best1 = lastScore;
             name1 = name0;
             best2 = temp;
-            score.edit().putInt("best2", best2).commit();
-            score.edit().putInt("best1", best1).commit();
-            setting.edit().putString("name2", name2).commit();
-            setting.edit().putString("name1", name1).commit();
+            score.edit().putInt("best2", best2).apply();
+            score.edit().putInt("best1", best1).apply();
+            setting.edit().putString("name2", name2).apply();
+            setting.edit().putString("name1", name1).apply();
         }
 
         tv_score.setText(

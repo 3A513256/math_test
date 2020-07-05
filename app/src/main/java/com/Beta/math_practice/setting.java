@@ -63,6 +63,7 @@ public class setting extends AppCompatActivity {
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 SharedPreferences setting = getSharedPreferences("setting", MODE_PRIVATE);
                 setting.edit().apply();
                 Intent intent = new Intent();

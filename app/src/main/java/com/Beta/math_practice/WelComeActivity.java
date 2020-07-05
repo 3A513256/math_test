@@ -8,11 +8,11 @@ import android.os.Handler;
 
 public class WelComeActivity extends AppCompatActivity {
 
-    private static int SPLASH_TIME_OUT = 2000; //開啟畫面時間(2秒)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcome_activity);
+        int SPLASH_TIME_OUT = 2000;
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
