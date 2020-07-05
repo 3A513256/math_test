@@ -1,6 +1,7 @@
 package com.Beta.math_practice;
 
 import androidx.appcompat.app.AppCompatActivity;
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private int Degree;
     Random r;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         SharedPreferences setting = getSharedPreferences("setting", 0);
@@ -128,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
     }
     private void gameOver() {
         SharedPreferences score = getSharedPreferences("score", 0);
-        score.edit().putInt("lastScore", mScore).commit();
+        score.edit().putInt("lastScore", mScore).apply();
         Intent intent = new Intent();
         intent.setClass(MainActivity.this , BestActivity.class);
         startActivity(intent);
