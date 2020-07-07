@@ -1,7 +1,7 @@
 package com.Beta.math_practice;
 
 import androidx.appcompat.app.AppCompatActivity;
-import android.annotation.SuppressLint;
+
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button answer1, answer2, answer3, answer4;
     TextView score, question;
+    Random r;
     private Qusetion mQuestions = new Qusetion();
     private Qusetion_hard mQuestions_hard = new Qusetion_hard();
     private String mAnswer;
@@ -29,15 +30,18 @@ public class MainActivity extends AppCompatActivity {
     private int mQuestionsLength_hard = mQuestions_hard.mQuestions1.length;
     private int question_Degree;
     private int Degree;
-    Random r;
+    private int time = 1;
 
-    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         SharedPreferences setting = getSharedPreferences("setting", 0);
-        Degree=setting.getInt("Degree", 0);
-        if(Degree==0){question_Degree=mQuestionsLength;}
-        if(Degree==1){question_Degree=mQuestionsLength_hard;}
+        Degree = setting.getInt("Degree", 0);
+        if (Degree == 0) {
+            question_Degree = mQuestionsLength;
+        }
+        if (Degree == 1) {
+            question_Degree = mQuestionsLength_hard;
+        }
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -49,38 +53,49 @@ public class MainActivity extends AppCompatActivity {
         answer4 = findViewById(R.id.answer1);
         score = findViewById(R.id.score);
         question = findViewById(R.id.question);
-        updateQuestion(r.nextInt(question_Degree));
-        score.setText("得分: " + 0);
+        score.setText(
+                "得分: 0" +
+                        "\n" +
+                        "第" + time + "題");
 
-        Typeface mytype=Typeface.createFromAsset(getAssets(),"setofont.ttf");
+
+        Typeface mytype = Typeface.createFromAsset(getAssets(), "setofont.ttf");
         answer1.setTypeface(mytype);
         answer2.setTypeface(mytype);
         answer3.setTypeface(mytype);
         answer4.setTypeface(mytype);
         score.setTypeface(mytype);
         question.setTypeface(mytype);
+        updateQuestion(r.nextInt(question_Degree));
 
         answer1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (answer1.getText() == mAnswer) {
                     mScore++;
-                    score.setText("得分: " + mScore);
-                    gameNext();
+                    score.setText("得分: " + mScore + "\n" + "第" + time + "題");
+                    time++;
+                    gameNext_true();
                 } else {
-                    gameOver();
+                    score.setText("得分: " + mScore + "\n" + "第" + time + "題");
+                    time++;
+                    gameNext_false();
                 }
             }
         });
+
         answer2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (answer2.getText() == mAnswer) {
                     mScore++;
-                    score.setText("得分: " + mScore);
-                    gameNext();
+                    score.setText("得分: " + mScore + "\n" + "第" + time + "題");
+                    time++;
+                    gameNext_true();
                 } else {
-                    gameOver();
+                    score.setText("得分: " + mScore + "\n" + "第" + time + "題");
+                    time++;
+                    gameNext_false();
                 }
             }
         });
@@ -89,10 +104,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (answer3.getText() == mAnswer) {
                     mScore++;
-                    score.setText("得分: " + mScore);
-                    gameNext();
+                    score.setText("得分: " + mScore + "\n" + "第" + time + "題");
+                    time++;
+                    gameNext_true();
                 } else {
-                    gameOver();
+                    score.setText("得分: " + mScore + "\n" + "第" + time + "題");
+                    time++;
+                    gameNext_false();
                 }
             }
         });
@@ -101,10 +119,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (answer4.getText() == mAnswer) {
                     mScore++;
-                    score.setText("得分: " + mScore);
-                    gameNext();
+                    score.setText("得分: " + mScore + "\n" + "第" + time + "題");
+                    gameNext_true();
                 } else {
-                    gameOver();
+                    score.setText("得分: " + mScore + "\n" + "第" + time + "題");
+                    time++;
+                    gameNext_false();
                 }
             }
         });
@@ -128,16 +148,38 @@ public class MainActivity extends AppCompatActivity {
             mAnswer = mQuestions_hard.getCorrectAnswer(num);
         }
     }
+
     private void gameOver() {
         SharedPreferences score = getSharedPreferences("score", 0);
         score.edit().putInt("lastScore", mScore).apply();
         Intent intent = new Intent();
-        intent.setClass(MainActivity.this , BestActivity.class);
+        intent.setClass(MainActivity.this, BestActivity.class);
         startActivity(intent);
         finish();
     }
 
-    private void gameNext() {
+    private void gameNext_false() {
+
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
+        alertDialogBuilder
+                .setMessage("答錯了！")
+                .setCancelable(false)
+                .setPositiveButton("下一題", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        if (time <= 10) {
+                            updateQuestion(r.nextInt(question_Degree));
+                        } else {
+                            gameOver();
+                        }
+                    }
+                });
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
+
+    private void gameNext_true() {
+
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
         alertDialogBuilder
                 .setMessage("答對了！")
@@ -145,7 +187,11 @@ public class MainActivity extends AppCompatActivity {
                 .setPositiveButton("下一題", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        updateQuestion(r.nextInt(question_Degree));
+                        if (time <= 10) {
+                            updateQuestion(r.nextInt(question_Degree));
+                        } else {
+                            gameOver();
+                        }
                     }
                 });
         AlertDialog alertDialog = alertDialogBuilder.create();
@@ -162,6 +208,7 @@ public class MainActivity extends AppCompatActivity {
         }
         return false;
     }
+
     @Override
     public boolean onKeyUp(int keyCode, KeyEvent event) {
         return super.onKeyUp(keyCode, event);

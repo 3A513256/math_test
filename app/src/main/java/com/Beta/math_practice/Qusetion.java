@@ -21,42 +21,52 @@ public class Qusetion {
             {"(A)0.772", "(B)1", "(C)1.6", "(D)0.8"},
             {"(A)五分之一", "(B)五分之二", "(C)五分之三", "(D)五分之四"},
             {"(A)四分之一", "(B)四分之二", "(C)四分之三", "(D)四分之四"},
-            {"(A)3.64","(B)3.35","(C)4.39","(D)4.69"},
-            {"(A)100*100","(B)1000*100","(C)1000*1000","(D)1000*10000"},
-            {"(A)Y+5=35","(B)Y/5=35","(C)35*Y=5","(D)35/Y=5"},
-            {"(A)打七折","(B)70%off","(C)一樣便宜","(D)無法比較"},
-            {"(A)972","(B)99","(C)117","(D)12"},
-            {"(A)4515","(B)4385","(C)4615","(D)4485"},
-            {"(A)333","(B)444","(C)555","(D)666"},
-            };
+            {"(A)3.64", "(B)3.35", "(C)4.39", "(D)4.69"},
+            {"(A)100*100", "(B)1000*100", "(C)1000*1000", "(D)1000*10000"},
+            {"(A)Y+5=35", "(B)Y/5=35", "(C)35*Y=5", "(D)35/Y=5"},
+            {"(A)打七折", "(B)70%off", "(C)一樣便宜", "(D)無法比較"},
+            {"(A)972", "(B)99", "(C)117", "(D)12"},
+            {"(A)4515", "(B)4385", "(C)4615", "(D)4485"},
+            {"(A)333", "(B)444", "(C)555", "(D)666"},
+    };
 
-    private String mCorrectAnswers[] = {"(C)270度","(A)0.772","(A)五分之一","(A)四分之一","(C)4.39","(C)1000*1000"
-            ,"(B)Y/5=35","(B)70%off","(D)12","(D)4485","(B)444"};
+    private String mCorrectAnswers[] = {"(C)270度", "(A)0.772", "(A)五分之一", "(A)四分之一", "(C)4.39", "(C)1000*1000"
+            , "(B)Y/5=35", "(B)70%off", "(D)12", "(D)4485", "(B)444"};
 
     public String getQuestion(int a) {
         String question = mQuestions[a];
-        return  question;
-    };
+        return question;
+    }
+
+    ;
 
     public String getChoice1(int a) {
         String choice = mChoices[a][0];
-        return  choice;
-    };
+        return choice;
+    }
+
+    ;
 
     public String getChoice2(int a) {
         String choice = mChoices[a][1];
-        return  choice;
-    };
+        return choice;
+    }
+
+    ;
 
     public String getChoice3(int a) {
         String choice = mChoices[a][2];
-        return  choice;
-    };
+        return choice;
+    }
+
+    ;
 
     public String getChoice4(int a) {
         String choice = mChoices[a][3];
-        return  choice;
-    };
+        return choice;
+    }
+
+    ;
 
     public String getCorrectAnswer(int a) {
         String answer = mCorrectAnswers[a];

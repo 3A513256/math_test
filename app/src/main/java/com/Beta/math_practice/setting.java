@@ -17,16 +17,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-
 public class setting extends AppCompatActivity {
 
-    int boy=0,girls=0,Easy=0,Difficulty=0;
+    int boy = 0, girls = 0, Easy = 0, Difficulty = 0;
 
     String name_input;
     Button confirm, rst, start;
     TextView textView_name, textView_gender, textView_Degree;
     EditText editText;
-    RadioButton boys,girl,easy,difficulty;
+    RadioButton boys, girl, easy, difficulty;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +41,8 @@ public class setting extends AppCompatActivity {
         editText = findViewById(R.id.name);
         boys = findViewById(R.id.gender_boy);
         girl = findViewById(R.id.gender_girl);
-        easy =  findViewById(R.id.Degree_easy);
-        difficulty =  findViewById(R.id.Degree_difficulty);
+        easy = findViewById(R.id.Degree_easy);
+        difficulty = findViewById(R.id.Degree_difficulty);
         boys.setOnCheckedChangeListener(gender);
         girl.setOnCheckedChangeListener(gender);
         easy.setOnCheckedChangeListener(Degree);
@@ -56,7 +55,7 @@ public class setting extends AppCompatActivity {
         textView_name.setTextSize(30);
         textView_gender.setTextSize(30);
         textView_Degree.setTextSize(30);
-        textView_name.setText("\n"+"請輸入使用者名稱：");
+        textView_name.setText("\n" + "請輸入使用者名稱：");
         textView_gender.setText("請選擇性別");
         textView_Degree.setText("請選擇難易度");
 
@@ -68,27 +67,34 @@ public class setting extends AppCompatActivity {
                 setting.edit().apply();
                 Intent intent = new Intent();
                 setting.edit().putString("name", name_input).apply();
-                if((Easy==Difficulty)){
-                    Toast.makeText(setting.this, "請選擇條件", Toast.LENGTH_SHORT).show();}
-                if(Easy < Difficulty) {
+                if ((Easy == Difficulty)) {
+                    Toast.makeText(setting.this, "請選擇條件", Toast.LENGTH_SHORT).show();
+                }
+                if (Easy < Difficulty) {
                     if ("".equals(name_input.trim())) {
                         Toast.makeText(setting.this, "請輸入使用者名稱", Toast.LENGTH_SHORT).show();
                     } else {
                         setting.edit().putInt("Degree", 1).apply();
                         intent.setClass(setting.this, MainActivity.class);
-                        startActivity(intent);}}
-                if(Easy > Difficulty){
-                    if("".equals(name_input.trim())){
-                        Toast.makeText(setting.this, "請輸入使用者名稱", Toast.LENGTH_SHORT).show();}
-                    else {
+                        startActivity(intent);
+                    }
+                }
+                if (Easy > Difficulty) {
+                    if ("".equals(name_input.trim())) {
+                        Toast.makeText(setting.this, "請輸入使用者名稱", Toast.LENGTH_SHORT).show();
+                    } else {
                         setting.edit().putInt("Degree", 0).apply();
                         intent.setClass(setting.this, MainActivity.class);
-                        startActivity(intent);}}
+                        startActivity(intent);
+                    }
+                }
                 //補上性別功能
-                if(boy > girls){
-                    setting.edit().putInt("gender", 1).apply();}
-                if(boy < girls){
-                    setting.edit().putInt("gender", 0).apply();}
+                if (boy > girls) {
+                    setting.edit().putInt("gender", 1).apply();
+                }
+                if (boy < girls) {
+                    setting.edit().putInt("gender", 0).apply();
+                }
 
             }
         });
@@ -105,12 +111,11 @@ public class setting extends AppCompatActivity {
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                name_input=editText.getText().toString();
+                name_input = editText.getText().toString();
 
-                if("".equals(name_input.trim())){
+                if ("".equals(name_input.trim())) {
                     Toast.makeText(setting.this, "請輸入使用者名稱", Toast.LENGTH_SHORT).show();
-                }
-                else Toast.makeText(setting.this, "輸入成功", Toast.LENGTH_SHORT).show();
+                } else Toast.makeText(setting.this, "輸入成功", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -121,12 +126,12 @@ public class setting extends AppCompatActivity {
         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
             switch (buttonView.getId()) {
                 case R.id.Degree_easy:
-                    Easy=1;
-                    Difficulty=0;
+                    Easy = 1;
+                    Difficulty = 0;
                     break;
                 case R.id.Degree_difficulty:
-                    Easy=0;
-                    Difficulty=1;
+                    Easy = 0;
+                    Difficulty = 1;
                     break;
             }
         }
@@ -137,12 +142,12 @@ public class setting extends AppCompatActivity {
         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
             switch (buttonView.getId()) {
                 case R.id.gender_boy:
-                    boy=1;
-                    girls=0;
+                    boy = 1;
+                    girls = 0;
                     break;
                 case R.id.gender_girl:
-                    boy=0;
-                    girls=1;
+                    boy = 0;
+                    girls = 1;
                     break;
             }
         }
@@ -158,6 +163,7 @@ public class setting extends AppCompatActivity {
         }
         return false;
     }
+
     @Override
     public boolean onKeyUp(int keyCode, KeyEvent event) {
         return super.onKeyUp(keyCode, event);

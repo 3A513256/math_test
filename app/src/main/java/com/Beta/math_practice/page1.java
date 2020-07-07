@@ -25,7 +25,7 @@ public class page1 extends AppCompatActivity {
         Button start;
         start = findViewById(R.id.start);
         title = findViewById(R.id.title);
-        Typeface mytype=Typeface.createFromAsset(getAssets(),"setofont.ttf");
+        Typeface mytype = Typeface.createFromAsset(getAssets(), "setofont.ttf");
 
         start.setText("遊戲開始");
         start.setTypeface(mytype);
@@ -41,11 +41,12 @@ public class page1 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.setClass(page1.this , setting.class);
+                intent.setClass(page1.this, setting.class);
                 startActivity(intent);
             }
         });
     }
+
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             if (getApplicationInfo().targetSdkVersion >= Build.VERSION_CODES.ECLAIR) {
@@ -56,6 +57,7 @@ public class page1 extends AppCompatActivity {
         }
         return false;
     }
+
     @Override
     public boolean onKeyUp(int keyCode, KeyEvent event) {
         return super.onKeyUp(keyCode, event);
