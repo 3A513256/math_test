@@ -120,6 +120,7 @@ public class MainActivity extends AppCompatActivity {
                 if (answer4.getText() == mAnswer) {
                     mScore++;
                     score.setText("得分: " + mScore + "\n" + "第" + time + "題");
+                    time++;
                     gameNext_true();
                 } else {
                     score.setText("得分: " + mScore + "\n" + "第" + time + "題");
