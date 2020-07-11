@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button answer1, answer2, answer3, answer4;
     TextView score, question;
-    Random r;
+    Random r = new Random();
     private Qusetion mQuestions = new Qusetion();
     private Qusetion_hard mQuestions_hard = new Qusetion_hard();
     private String mAnswer;
@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        r = new Random();
 
         answer1 = findViewById(R.id.answer4);
         answer2 = findViewById(R.id.answer3);
@@ -57,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
                 "得分: 0" +
                         "\n" +
                         "第" + time + "題");
-
 
         Typeface mytype = Typeface.createFromAsset(getAssets(), "setofont.ttf");
         answer1.setTypeface(mytype);
@@ -83,7 +81,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
         answer2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
