@@ -38,7 +38,6 @@ public class Qusetion {
         return question;
     }
 
-
     public String getChoice1(int a) {
         String choice = mChoices[a][0];
         return choice;

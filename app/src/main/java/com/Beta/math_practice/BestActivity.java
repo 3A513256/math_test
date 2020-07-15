@@ -23,7 +23,7 @@ public class BestActivity extends AppCompatActivity {
     String name1, name2, name3, name0;
     Button button1, button2;
 
-    @SuppressLint("SetTextI18n")
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
