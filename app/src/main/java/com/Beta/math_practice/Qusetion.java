@@ -15,6 +15,7 @@ public class Qusetion {
             "阿原有X元的存款，後來又存入2365元，存款裡總共有6850元，阿原原來有多少錢？",
             "鞋店全館一律打九折，若是會員再折七折，小雅是會員，買了一雙1500的鞋，請問比定價便宜多少元？"
     };
+
     private String mChoices[][] = {
 
             {"(A)90度", "(B)180度", "(C)270度", "(D)360度"},
@@ -32,6 +33,22 @@ public class Qusetion {
 
     private String mCorrectAnswers[] = {"(C)270度", "(A)0.772", "(A)五分之一", "(A)四分之一", "(C)4.39", "(C)1000*1000"
             , "(B)Y/5=35", "(B)70%off", "(D)12", "(D)4485", "(B)444"};
+
+    private String mtip[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+    };
+
+    private String mprompt[] = {"10", "11", "12", "13", "14", "15", "16", "17", "18", "19"
+    };
+
+    public String gettip(int a) {
+        String tip = mtip[a];
+        return tip;
+    }
+
+    public String getprompt(int a) {
+        String prompt = mprompt[a];
+        return prompt;
+    }
 
     public String getQuestion(int a) {
         String question = mQuestions[a];

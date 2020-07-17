@@ -19,11 +19,11 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button answer1, answer2, answer3, answer4;
+    Button answer1, answer2, answer3, answer4, tip, prompt;
     TextView score, question;
     private Qusetion mQuestions = new Qusetion();
     private Qusetion_hard mQuestions_hard = new Qusetion_hard();
-    private String mAnswer;
+    private String mAnswer, mtip, mprompt;
     private int mScore = 0;
     private int Degree;
     private int time = 1;
@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> Answer3 = new ArrayList<String>(10);
     ArrayList<String> Answer4 = new ArrayList<String>(10);
     ArrayList<String> correct = new ArrayList<String>(10);
+    ArrayList<String> Tip = new ArrayList<String>(10);
+    ArrayList<String> Prompt = new ArrayList<String>(10);
     String st = "", temp = "";
 
     @Override
@@ -47,9 +49,13 @@ public class MainActivity extends AppCompatActivity {
         answer2 = findViewById(R.id.answer3);
         answer3 = findViewById(R.id.answer2);
         answer4 = findViewById(R.id.answer1);
+        tip = findViewById(R.id.tip);
+        prompt = findViewById(R.id.prompt);
         score = findViewById(R.id.score);
         question = findViewById(R.id.question);
         score.setText("第" + time + "題" + "\n" + "\n" + "得分: 0");
+        tip.setText("基本提示");
+        prompt.setText("進階提示");
         Typeface mytype = Typeface.createFromAsset(getAssets(), "setofont.ttf");
         answer1.setTypeface(mytype);
         answer2.setTypeface(mytype);
@@ -59,6 +65,33 @@ public class MainActivity extends AppCompatActivity {
         question.setTypeface(mytype);
         updateArrayList();
         updateQuestion(time - 1);
+
+        tip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
+                alertDialogBuilder
+                        .setMessage(mtip)
+                        .setCancelable(false)
+                        .setPositiveButton("確定", null);
+                AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.show();
+            }
+        });
+
+
+        prompt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
+                alertDialogBuilder
+                        .setMessage(mprompt)
+                        .setCancelable(false)
+                        .setPositiveButton("確定", null);
+                AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.show();
+            }
+        });
 
         answer1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -127,6 +160,8 @@ public class MainActivity extends AppCompatActivity {
                 Answer3.add(mQuestions.getChoice3(randomArray[i]));
                 Answer4.add(mQuestions.getChoice4(randomArray[i]));
                 correct.add(mQuestions.getCorrectAnswer(randomArray[i]));
+                Tip.add(mQuestions.gettip(randomArray[i]));
+                Prompt.add(mQuestions.getprompt(randomArray[i]));
             }
             if (Degree == 1) {
                 Questions.add(mQuestions_hard.getQuestion(randomArray[i]));
@@ -135,6 +170,8 @@ public class MainActivity extends AppCompatActivity {
                 Answer3.add(mQuestions_hard.getChoice3(randomArray[i]));
                 Answer4.add(mQuestions_hard.getChoice4(randomArray[i]));
                 correct.add(mQuestions_hard.getCorrectAnswer(randomArray[i]));
+                Tip.add(mQuestions_hard.gettip(randomArray[i]));
+                Prompt.add(mQuestions_hard.getprompt(randomArray[i]));
             }
         }
     }
@@ -147,7 +184,10 @@ public class MainActivity extends AppCompatActivity {
             answer3.setText(Answer3.get(num));
             answer4.setText(Answer4.get(num));
             mAnswer = correct.get(num);
+            mtip = Tip.get(num);
+            mprompt = Prompt.get(num);
         }
+
         if (Degree == 1) {
             question.setText(st + Questions.get(num));
             answer1.setText(Answer1.get(num));
@@ -155,6 +195,8 @@ public class MainActivity extends AppCompatActivity {
             answer3.setText(Answer3.get(num));
             answer4.setText(Answer4.get(num));
             mAnswer = correct.get(num);
+            Tip.get(num);
+            Prompt.get(num);
         }
     }
 

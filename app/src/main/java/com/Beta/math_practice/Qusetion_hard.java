@@ -1,8 +1,8 @@
 package com.Beta.math_practice;
 
-public class Qusetion_hard{
+public class Qusetion_hard {
 
-    public String mQuestions1[] = {
+    public String mQuestions[] = {
             "(     ) -1742=3425？",
             "李阿姨買了一個578元的書包要送給兒子當生日禮物，付1000元鈔票，要找多少錢？",
             "為了訓練體能，小花的哥哥每天在正方形的公園練習跑步，公園每一邊是 0.26 公里，請問每天跑 3 圈，共跑幾公里？",
@@ -15,50 +15,70 @@ public class Qusetion_hard{
             "歡樂歌唱班的同學15個一數或8個一數都能數完，則歡樂歌唱班的總人數會是？",
             "有一些平行四邊形積木，底面的長6公分、高8公分，寬是5公分的，子涵疊了17個，疊起來的體積是幾立方公分",
     };
-    private String mChoices1[][] = {
+
+    private String mChoices[][] = {
             {"(A)1663", "(B)1683", "(C)5167", "(D)5177"},
             {"(A)422", "(B)432", "(C)522", "(D)532"},
             {"(A)0.78公里", "(B)1.04公里", "(C)3.12公里", "(D)3.15公里"},
             {"(A)1060", "(B)1070", "(C)10600", "(D)10700"},
-            {"(A)A×B+C＝D","(B) C×B+A＝D","(C)C×B+D＝A","(D)D×C+B＝A"},
-            {"(A)可以是銳角","(B)可以是直角","(C)可以是鈍角","(D)可以是平角"},
-            {"(A)5090000000","(B)509000000","(C)50900000","(D)5090000"},
-            {"(A)38分30秒","(B)40分20秒","(C)40分30秒","(D)45分10秒"},
-            {"(A)1.100","(B)5.230","(C)3.330","(D)5.0001"},
-            {"(A)15和8的公倍數","(B)15和8的公因數","(C)23的倍數","(D)23的因數"},
-            {"(A)816","(B)4080","(C)5080","(D)5800"},
+            {"(A)A×B+C＝D", "(B) C×B+A＝D", "(C)C×B+D＝A", "(D)D×C+B＝A"},
+            {"(A)可以是銳角", "(B)可以是直角", "(C)可以是鈍角", "(D)可以是平角"},
+            {"(A)5090000000", "(B)509000000", "(C)50900000", "(D)5090000"},
+            {"(A)38分30秒", "(B)40分20秒", "(C)40分30秒", "(D)45分10秒"},
+            {"(A)1.100", "(B)5.230", "(C)3.330", "(D)5.0001"},
+            {"(A)15和8的公倍數", "(B)15和8的公因數", "(C)23的倍數", "(D)23的因數"},
+            {"(A)816", "(B)4080", "(C)5080", "(D)5800"},
     };
 
-    private String mCorrectAnswers1[] = {"(C)5167","(A)422","(C)3.12公里","(D)10700","(C)C×B+D＝A","(A)可以是銳角"
-            ,"(B)509000000","(C)40分30秒","(D)5.0001","(A)15和8的公倍數","(B)4080"};
+    private String mCorrectAnswers[] = {"(C)5167", "(A)422", "(C)3.12公里", "(D)10700", "(C)C×B+D＝A", "(A)可以是銳角"
+            , "(B)509000000", "(C)40分30秒", "(D)5.0001", "(A)15和8的公倍數", "(B)4080"
+    };
+
+    private String mtip[] = {"20", "21", "22", "23", "24", "25", "26", "27", "28", "29"
+    };
+
+    private String mprompt[] = {"30", "31", "32", "33", "34", "45", "36", "37", "38", "39"
+
+    };
+
+    public String gettip(int a) {
+        String tip = mtip[a];
+        return tip;
+    }
+
+    public String getprompt(int a) {
+        String prompt = mprompt[a];
+        return prompt;
+    }
 
     public String getQuestion(int a) {
-        String question = mQuestions1[a];
-        return  question;
-    };
+        String question = mQuestions[a];
+        return question;
+    }
 
     public String getChoice1(int a) {
-        String choice = mChoices1[a][0];
-        return  choice;
-    };
+        String choice = mChoices[a][0];
+        return choice;
+    }
 
     public String getChoice2(int a) {
-        String choice = mChoices1[a][1];
-        return  choice;
-    };
+        String choice = mChoices[a][1];
+        return choice;
+    }
 
     public String getChoice3(int a) {
-        String choice = mChoices1[a][2];
-        return  choice;
-    };
+        String choice = mChoices[a][2];
+        return choice;
+    }
+
 
     public String getChoice4(int a) {
-        String choice = mChoices1[a][3];
-        return  choice;
-    };
+        String choice = mChoices[a][3];
+        return choice;
+    }
 
     public String getCorrectAnswer(int a) {
-        String answer = mCorrectAnswers1[a];
+        String answer = mCorrectAnswers[a];
         return answer;
     }
 }
