@@ -29,4 +29,5 @@
     <string name="todo">TODO</string>
     <string name="button5">Button</string>
     <string name="button6">Button</string>
+    <string name="清除排行榜">清除排行榜</string>
 </resources>

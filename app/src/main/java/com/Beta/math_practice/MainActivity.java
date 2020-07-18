@@ -195,14 +195,19 @@ public class MainActivity extends AppCompatActivity {
             answer3.setText(Answer3.get(num));
             answer4.setText(Answer4.get(num));
             mAnswer = correct.get(num);
-            Tip.get(num);
-            Prompt.get(num);
+            mtip = Tip.get(num);
+            mprompt = Prompt.get(num);
         }
     }
 
     private void gameOver() {
         SharedPreferences score = getSharedPreferences("score", 0);
-        score.edit().putInt("lastScore", mScore).apply();
+        if (Degree == 0) {
+            score.edit().putInt("lastScore_easy", mScore).apply();
+        }
+        if (Degree == 1) {
+            score.edit().putInt("lastScore_hard", mScore).apply();
+        }
         Intent intent = new Intent();
         intent.setClass(MainActivity.this, BestActivity.class);
         startActivity(intent);

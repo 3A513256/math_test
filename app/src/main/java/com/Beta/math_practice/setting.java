@@ -21,7 +21,7 @@ public class setting extends AppCompatActivity {
 
     int boy = 0, girls = 0, Easy = 0, Difficulty = 0;
 
-    String name_input;
+    String name_input ="";
     Button confirm, rst, start;
     TextView textView_name, textView_gender, textView_Degree;
     EditText editText;
@@ -62,38 +62,38 @@ public class setting extends AppCompatActivity {
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 SharedPreferences setting = getSharedPreferences("setting", MODE_PRIVATE);
-                setting.edit().apply();
                 Intent intent = new Intent();
-                setting.edit().putString("name", name_input).apply();
                 if ((Easy == Difficulty)) {
                     Toast.makeText(setting.this, "請選擇條件", Toast.LENGTH_SHORT).show();
                 }
                 if (Easy < Difficulty) {
-                    if ("".equals(name_input.trim())) {
+                    if (name_input.trim().matches("")) {
                         Toast.makeText(setting.this, "請輸入使用者名稱", Toast.LENGTH_SHORT).show();
                     } else {
-                        setting.edit().putInt("Degree", 1).apply();
+                        setting.edit().putString("name_hard", name_input).commit();
+                        setting.edit().putInt("Degree", 1).commit();
                         intent.setClass(setting.this, MainActivity.class);
                         startActivity(intent);
                     }
                 }
                 if (Easy > Difficulty) {
-                    if ("".equals(name_input.trim())) {
+                    if (name_input.trim().matches("")) {
                         Toast.makeText(setting.this, "請輸入使用者名稱", Toast.LENGTH_SHORT).show();
                     } else {
-                        setting.edit().putInt("Degree", 0).apply();
+                        setting.edit().putString("name_easy", name_input).commit();
+                        setting.edit().putInt("Degree", 0).commit();
                         intent.setClass(setting.this, MainActivity.class);
                         startActivity(intent);
+                        setting.edit().commit();
                     }
                 }
                 //補上性別功能
                 if (boy > girls) {
-                    setting.edit().putInt("gender", 1).apply();
+                    setting.edit().putInt("gender", 1).commit();
                 }
                 if (boy < girls) {
-                    setting.edit().putInt("gender", 0).apply();
+                    setting.edit().putInt("gender", 0).commit();
                 }
 
             }
@@ -111,9 +111,9 @@ public class setting extends AppCompatActivity {
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                name_input = editText.getText().toString();
 
-                if ("".equals(name_input.trim())) {
+                name_input = editText.getText().toString();
+                if (name_input.trim().matches("")) {
                     Toast.makeText(setting.this, "請輸入使用者名稱", Toast.LENGTH_SHORT).show();
                 } else Toast.makeText(setting.this, "輸入成功", Toast.LENGTH_SHORT).show();
             }
