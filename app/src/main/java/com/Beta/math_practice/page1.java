@@ -29,12 +29,12 @@ public class page1 extends AppCompatActivity {
 
         start.setText("遊戲開始");
         start.setTypeface(mytype);
-        start.setTextSize(30);
+        start.setTextSize(3,10);
         start.setGravity(CENTER);
 
         title.setText("數學小天才");
         title.setTypeface(mytype);
-        title.setTextSize(60);
+        title.setTextSize(1,50);
         title.setGravity(CENTER);
 
         start.setOnClickListener(new View.OnClickListener() {

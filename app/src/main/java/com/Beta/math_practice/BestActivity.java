@@ -148,7 +148,7 @@ public class BestActivity extends AppCompatActivity {
 
 
         tv_score.setTypeface(mytype);
-        tv_score.setTextSize(30);
+        tv_score.setTextSize(1,30);
         tv_score.setGravity(CENTER);
 
         button1.setOnClickListener(new View.OnClickListener() {

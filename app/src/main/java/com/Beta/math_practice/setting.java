@@ -19,13 +19,13 @@ import android.widget.Toast;
 
 public class setting extends AppCompatActivity {
 
-    int boy = 0, girls = 0, Easy = 0, Difficulty = 0;
+    int boy = 0, girl = 0, Easy = 0, Difficulty = 0;
 
-    String name_input ="";
+    String name_input = "";
     Button confirm, rst, start;
     TextView textView_name, textView_gender, textView_Degree;
     EditText editText;
-    RadioButton boys, girl, easy, difficulty;
+    RadioButton boys, girls, easy, difficulty;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,11 +40,11 @@ public class setting extends AppCompatActivity {
         textView_Degree = findViewById(R.id.textView_Degree);
         editText = findViewById(R.id.name);
         boys = findViewById(R.id.gender_boy);
-        girl = findViewById(R.id.gender_girl);
+        girls = findViewById(R.id.gender_girl);
         easy = findViewById(R.id.Degree_easy);
         difficulty = findViewById(R.id.Degree_difficulty);
         boys.setOnCheckedChangeListener(gender);
-        girl.setOnCheckedChangeListener(gender);
+        girls.setOnCheckedChangeListener(gender);
         easy.setOnCheckedChangeListener(Degree);
         difficulty.setOnCheckedChangeListener(Degree);
 
@@ -52,12 +52,20 @@ public class setting extends AppCompatActivity {
         textView_name.setTypeface(mytype);
         textView_gender.setTypeface(mytype);
         textView_Degree.setTypeface(mytype);
-        textView_name.setTextSize(30);
-        textView_gender.setTextSize(30);
-        textView_Degree.setTextSize(30);
+        boys.setTypeface(mytype);
+        girls.setTypeface(mytype);
+        easy.setTypeface(mytype);
+        difficulty.setTypeface(mytype);
+        textView_name.setTextSize(1, 30);
+        textView_gender.setTextSize(1, 30);
+        textView_Degree.setTextSize(1, 30);
         textView_name.setText("\n" + "請輸入使用者名稱：");
-        textView_gender.setText("請選擇性別");
-        textView_Degree.setText("請選擇難易度");
+        textView_gender.setText("\n" + "請選擇性別：");
+        textView_Degree.setText("\n" + "請選擇難易度：");
+        boys.setText("男生");
+        girls.setText("女生");
+        easy.setText("簡單");
+        difficulty.setText("困難");
 
         start.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,10 +97,10 @@ public class setting extends AppCompatActivity {
                     }
                 }
                 //補上性別功能
-                if (boy > girls) {
+                if (boy > girl) {
                     setting.edit().putInt("gender", 1).commit();
                 }
-                if (boy < girls) {
+                if (boy < girl) {
                     setting.edit().putInt("gender", 0).commit();
                 }
 
@@ -143,11 +151,11 @@ public class setting extends AppCompatActivity {
             switch (buttonView.getId()) {
                 case R.id.gender_boy:
                     boy = 1;
-                    girls = 0;
+                    girl = 0;
                     break;
                 case R.id.gender_girl:
                     boy = 0;
-                    girls = 1;
+                    girl = 1;
                     break;
             }
         }

@@ -178,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void updateQuestion(int num) {
         if (Degree == 0) {
-            question.setText(st + Questions.get(num));
+            question.setText(Questions.get(num));
             answer1.setText(Answer1.get(num));
             answer2.setText(Answer2.get(num));
             answer3.setText(Answer3.get(num));
@@ -189,7 +189,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (Degree == 1) {
-            question.setText(st + Questions.get(num));
+            question.setText(Questions.get(num));
             answer1.setText(Answer1.get(num));
             answer2.setText(Answer2.get(num));
             answer3.setText(Answer3.get(num));

@@ -34,7 +34,7 @@ public class Qusetion {
     private String mCorrectAnswers[] = {"(C)270度", "(A)0.772", "(A)五分之一", "(A)四分之一", "(C)4.39", "(C)1000*1000"
             , "(B)Y/5=35", "(B)70%off", "(D)12", "(D)4485", "(B)444"};
 
-    private String mtip[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+    private String mtip[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"
     };
 
     private String mprompt[] = {"10", "11", "12", "13", "14", "15", "16", "17", "18", "19"
