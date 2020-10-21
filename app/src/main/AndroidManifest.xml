@@ -8,6 +8,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true">
+
         <activity
             android:name=".WelComeActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -16,9 +17,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".page1"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -26,7 +28,11 @@
             android:name=".BestActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".setting"
+            android:name=".setting_gender"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".setting_degree"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>
+
 </manifest>

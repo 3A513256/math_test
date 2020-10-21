@@ -29,19 +29,19 @@ public class page1 extends AppCompatActivity {
 
         start.setText("遊戲開始");
         start.setTypeface(mytype);
-        start.setTextSize(3,10);
+        start.setTextSize(3, 10);
         start.setGravity(CENTER);
 
         title.setText("數學小天才");
         title.setTypeface(mytype);
-        title.setTextSize(1,50);
+        title.setTextSize(1, 50);
         title.setGravity(CENTER);
 
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.setClass(page1.this, setting.class);
+                intent.setClass(page1.this, setting_gender.class);
                 startActivity(intent);
             }
         });
