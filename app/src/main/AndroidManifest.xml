@@ -14,10 +14,10 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".page1"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -32,6 +32,9 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".setting_degree"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".DrawView_setting"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>
 

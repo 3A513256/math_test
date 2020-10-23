@@ -1,7 +1,6 @@
 package com.Beta.math_practice;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -19,7 +18,7 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button answer1, answer2, answer3, answer4, tip, prompt;
+    Button answer1, answer2, answer3, answer4, tip, prompt,draw;
     TextView score, question;
     private Qusetion_mid mQuestions_mid = new Qusetion_mid();
     private Qusetion_hard mQuestions_hard = new Qusetion_hard();
@@ -47,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         answer2 = findViewById(R.id.answer3);
         answer3 = findViewById(R.id.answer2);
         answer4 = findViewById(R.id.answer1);
+        draw = findViewById(R.id.draw);
         tip = findViewById(R.id.tip);
         prompt = findViewById(R.id.prompt);
         score = findViewById(R.id.score);
@@ -134,39 +134,27 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        draw.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, DrawView_setting.class);
+                startActivity(intent);
+                }
+        });
     }
 
     private void updateArrayList() {
-        if (Degree == 2) {
-            int[] randomArray = new int[10];
-            Random rnd = new Random();  //產生亂數初始值
-            for (int i = 0; i < 10; i++) {
-                randomArray[i] = rnd.nextInt(mQuestions_easy.mQuestions.length);   //亂數產生，亂數產生的範圍是1~17
-                for (int j = 0; j < i; j++) {
-                    while (randomArray[j] == randomArray[i]) {   //檢查是否與前面產生的數值發生重複，如果有就重新產生
-                        j = 0;  //如有重複，將變數j設為0，再次檢查 (因為還是有重複的可能)
-                        randomArray[i] = rnd.nextInt(mQuestions_easy.mQuestions.length);   //重新產生，存回陣列，亂數產生的範圍是1~9
-                    }
-                }
-                Questions.add(mQuestions_easy.getQuestion(randomArray[i]));
-                Answer1.add(mQuestions_easy.getChoice1(randomArray[i]));
-                Answer2.add(mQuestions_easy.getChoice2(randomArray[i]));
-                Answer3.add(mQuestions_easy.getChoice3(randomArray[i]));
-                Answer4.add(mQuestions_easy.getChoice4(randomArray[i]));
-                correct.add(mQuestions_easy.getCorrectAnswer(randomArray[i]));
-                Tip.add(mQuestions_easy.gettip(randomArray[i]));
-                Prompt.add(mQuestions_easy.getprompt(randomArray[i]));
-            }
-        }
+
         if (Degree == 0) {
             int[] randomArray = new int[10];
             Random rnd = new Random();  //產生亂數初始值
             for (int i = 0; i < 10; i++) {
-                randomArray[i] = rnd.nextInt(mQuestions_mid.mQuestions.length);   //亂數產生，亂數產生的範圍是1~17
+                randomArray[i] = rnd.nextInt(mQuestions_mid.mQuestions.length);   //亂數產生，亂數產生的範圍是題目字串數
                 for (int j = 0; j < i; j++) {
                     while (randomArray[j] == randomArray[i]) {   //檢查是否與前面產生的數值發生重複，如果有就重新產生
                         j = 0;  //如有重複，將變數j設為0，再次檢查 (因為還是有重複的可能)
-                        randomArray[i] = rnd.nextInt(mQuestions_mid.mQuestions.length);   //重新產生，存回陣列，亂數產生的範圍是1~9
+                        randomArray[i] = rnd.nextInt(mQuestions_mid.mQuestions.length);   //重新產生，存回陣列，亂數產生的範圍是題目字串數
                     }
                 }
                 Questions.add(mQuestions_mid.getQuestion(randomArray[i]));
@@ -178,16 +166,16 @@ public class MainActivity extends AppCompatActivity {
                 Tip.add(mQuestions_mid.gettip(randomArray[i]));
                 Prompt.add(mQuestions_mid.getprompt(randomArray[i]));
             }
-        }
+        }//普通
         if (Degree == 1) {
             int[] randomArray = new int[10];
-            Random rnd = new Random();  //產生亂數初始值
+            Random rnd = new Random();
             for (int i = 0; i < 10; i++) {
-                randomArray[i] = rnd.nextInt(mQuestions_hard.mQuestions.length);   //亂數產生，亂數產生的範圍是1~17
+                randomArray[i] = rnd.nextInt(mQuestions_hard.mQuestions.length);
                 for (int j = 0; j < i; j++) {
-                    while (randomArray[j] == randomArray[i]) {   //檢查是否與前面產生的數值發生重複，如果有就重新產生
-                        j = 0;  //如有重複，將變數j設為0，再次檢查 (因為還是有重複的可能)
-                        randomArray[i] = rnd.nextInt(mQuestions_hard.mQuestions.length);   //重新產生，存回陣列，亂數產生的範圍是1~9
+                    while (randomArray[j] == randomArray[i]) {
+                        j = 0;
+                        randomArray[i] = rnd.nextInt(mQuestions_hard.mQuestions.length);
                     }
                 }
                 Questions.add(mQuestions_hard.getQuestion(randomArray[i]));
@@ -199,7 +187,28 @@ public class MainActivity extends AppCompatActivity {
                 Tip.add(mQuestions_hard.gettip(randomArray[i]));
                 Prompt.add(mQuestions_hard.getprompt(randomArray[i]));
             }
-        }
+        }//困難
+        if (Degree == 2) {
+            int[] randomArray = new int[10];
+            Random rnd = new Random();  //產生亂數初始值
+            for (int i = 0; i < 10; i++) {
+                randomArray[i] = rnd.nextInt(mQuestions_easy.mQuestions.length);
+                for (int j = 0; j < i; j++) {
+                    while (randomArray[j] == randomArray[i]) {
+                        j = 0;
+                        randomArray[i] = rnd.nextInt(mQuestions_easy.mQuestions.length);
+                    }
+                }
+                Questions.add(mQuestions_easy.getQuestion(randomArray[i]));
+                Answer1.add(mQuestions_easy.getChoice1(randomArray[i]));
+                Answer2.add(mQuestions_easy.getChoice2(randomArray[i]));
+                Answer3.add(mQuestions_easy.getChoice3(randomArray[i]));
+                Answer4.add(mQuestions_easy.getChoice4(randomArray[i]));
+                correct.add(mQuestions_easy.getCorrectAnswer(randomArray[i]));
+                Tip.add(mQuestions_easy.gettip(randomArray[i]));
+                Prompt.add(mQuestions_easy.getprompt(randomArray[i]));
+            }
+        }//簡單
     }
 
     private void updateQuestion(int num) {
@@ -239,14 +248,14 @@ public class MainActivity extends AppCompatActivity {
 
     private void gameOver() {
         SharedPreferences score = getSharedPreferences("score", 0);
-        if (Degree == 0) {
+        if (Degree == 2) {
             score.edit().putInt("lastScore_easy", mScore).apply();
         }
         if (Degree == 1) {
             score.edit().putInt("lastScore_hard", mScore).apply();
         }
-        if (Degree == 2) {
-            score.edit().putInt("lastScore_hard", mScore).apply();
+        if (Degree == 0) {
+            score.edit().putInt("lastScore_mid", mScore).apply();
         }
         Intent intent = new Intent();
         intent.setClass(MainActivity.this, BestActivity.class);

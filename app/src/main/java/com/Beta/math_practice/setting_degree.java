@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -19,7 +20,7 @@ public class setting_degree extends AppCompatActivity {
     int check = 0;
     String name_input = "";
     EditText editText;
-    Button confirm, rst, start;
+    Button confirm;
     ImageButton easy, hard, mid;
 
     @Override
@@ -27,13 +28,14 @@ public class setting_degree extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting_degree);
         confirm = findViewById(R.id.confirm);
-        rst = findViewById(R.id.rst);
-        start = findViewById(R.id.start);
         editText = findViewById(R.id.name);
         easy = findViewById(R.id.easyButton);
         hard = findViewById(R.id.hardButton);
         mid = findViewById(R.id.midButton);
-
+        confirm.setText("Start!");
+        Typeface mytype = Typeface.createFromAsset(getAssets(), "setofont.ttf");
+        confirm.setTypeface(mytype);
+        confirm.setTextSize(20);
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -88,14 +90,6 @@ public class setting_degree extends AppCompatActivity {
                 check = 3;
                 SharedPreferences setting = getSharedPreferences("setting", MODE_PRIVATE);
                 setting.edit().putInt("degree", 1).commit();
-            }
-        });
-        rst.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(setting_degree.this, page1.class);
-                startActivity(intent);
             }
         });
     }
