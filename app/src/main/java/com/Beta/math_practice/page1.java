@@ -25,7 +25,7 @@ public class page1 extends AppCompatActivity {
         Button start;
         start = findViewById(R.id.start);
         title = findViewById(R.id.title);
-        Typeface mytype = Typeface.createFromAsset(getAssets(), "setofont.ttf");
+        Typeface mytype = Typeface.createFromAsset(getAssets(), "jf.ttf");
 
         start.setText("遊戲開始");
         start.setTypeface(mytype);

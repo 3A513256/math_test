@@ -25,7 +25,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
             android:layout_marginBottom="150dp"
-            android:text="@string/離開"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -35,7 +34,6 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="60dp"
             android:layout_marginBottom="150dp"
-            android:text="@string/新遊戲"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
@@ -46,7 +44,6 @@
             android:layout_marginStart="133dp"
             android:layout_marginEnd="133dp"
             android:layout_marginBottom="250dp"
-            android:text="@string/清除排行榜"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

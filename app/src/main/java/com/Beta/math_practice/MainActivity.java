@@ -1,6 +1,7 @@
 package com.Beta.math_practice;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -18,7 +19,7 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button answer1, answer2, answer3, answer4, tip, prompt,draw;
+    Button answer1, answer2, answer3, answer4, tip, prompt, draw;
     TextView score, question;
     private Qusetion_mid mQuestions_mid = new Qusetion_mid();
     private Qusetion_hard mQuestions_hard = new Qusetion_hard();
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private int mScore = 0;
     private int Degree;
     private int time = 1;
+
     ArrayList<String> Questions = new ArrayList<String>(10);
     ArrayList<String> Answer1 = new ArrayList<String>(10);
     ArrayList<String> Answer2 = new ArrayList<String>(10);
@@ -42,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         Degree = setting.getInt("degree", 0);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         answer1 = findViewById(R.id.answer4);
         answer2 = findViewById(R.id.answer3);
         answer3 = findViewById(R.id.answer2);
@@ -54,13 +57,20 @@ public class MainActivity extends AppCompatActivity {
         score.setText("第" + time + "題" + "\n" + "\n" + "得分: 0");
         tip.setText("基本提示");
         prompt.setText("進階提示");
-        Typeface mytype = Typeface.createFromAsset(getAssets(), "setofont.ttf");
+        draw.setText("畫板");
+
+        Typeface mytype = Typeface.createFromAsset(getAssets(), "jf.ttf");
+
+        draw.setTypeface(mytype);
+        tip.setTypeface(mytype);
+        prompt.setTypeface(mytype);
         answer1.setTypeface(mytype);
         answer2.setTypeface(mytype);
         answer3.setTypeface(mytype);
         answer4.setTypeface(mytype);
         score.setTypeface(mytype);
         question.setTypeface(mytype);
+
         updateArrayList();
         updateQuestion(time - 1);
 
@@ -139,8 +149,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this, DrawView_setting.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("question", Questions.get(time - 1));
+                intent.putExtras(bundle);
                 startActivity(intent);
-                }
+            }
         });
     }
 

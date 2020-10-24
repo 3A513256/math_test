@@ -30,8 +30,14 @@ public class BestActivity extends AppCompatActivity {
         NewGame = findViewById(R.id.newgame);
         rst = findViewById(R.id.rst);
         clear = findViewById(R.id.clear);
+        Typeface mytype = Typeface.createFromAsset(getAssets(), "jf.ttf");
 
-        Typeface mytype = Typeface.createFromAsset(getAssets(), "setofont.ttf");
+        NewGame.setTypeface(mytype);
+        rst.setTypeface(mytype);
+        clear.setTypeface(mytype);
+        NewGame.setText("再來一局！");
+        rst.setText("離開");
+        clear.setText("清除排行榜");
         SharedPreferences setting = getSharedPreferences("setting", MODE_PRIVATE);
         SharedPreferences score = getSharedPreferences("score", MODE_PRIVATE);
         Degree = setting.getInt("degree", MODE_PRIVATE);
