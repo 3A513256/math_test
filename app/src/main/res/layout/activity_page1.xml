@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.Beta.math_practice.page1"
-    android:background="@drawable/backimg"
-    >
+    android:background="@drawable/backimg">
 
     <Button
         android:id="@+id/start"

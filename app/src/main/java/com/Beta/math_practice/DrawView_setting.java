@@ -1,6 +1,7 @@
 package com.Beta.math_practice;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
@@ -18,14 +19,16 @@ public class DrawView_setting extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_draw_view);
         TextView question = findViewById(R.id.question_draw);
+
         final DrawView drawView = (DrawView) findViewById(R.id.drawView);
         Button clear, back;
         clear = findViewById(R.id.clear);
         back = findViewById(R.id.back);
         Bundle bundle = getIntent().getExtras();
-        question.setText(bundle.getString("question"));
         Typeface mytype = Typeface.createFromAsset(getAssets(), "jf.ttf");
         question.setTypeface(mytype);
+        question.setTextColor(Color.rgb(5, 15, 138));
+        question.setText(bundle.getString("question"));
 
         clear.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,7 +36,6 @@ public class DrawView_setting extends AppCompatActivity {
                 drawView.clearBitmap();
             }
         });
-
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

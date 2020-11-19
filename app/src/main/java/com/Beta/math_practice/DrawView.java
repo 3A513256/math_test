@@ -11,6 +11,7 @@ import android.graphics.PorterDuff;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.TextView;
 
 
 public class DrawView extends View {
@@ -20,6 +21,7 @@ public class DrawView extends View {
     public Paint paint;// 画笔
     private float preX, preY;// 之前的XY的位置，用于下面的手势移动
     private int view_width, view_height;// 屏幕的高度与宽度
+
 
     public DrawView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -34,6 +36,7 @@ public class DrawView extends View {
         paint.setColor(Color.BLACK);// 设置画笔的默认颜色
         paint.setStyle(Paint.Style.STROKE);// 设置画笔的填充方式为无填充、仅仅是画线
         paint.setStrokeWidth(8);// 设置画笔的宽度为8
+
     }
 
     @Override
@@ -76,5 +79,6 @@ public class DrawView extends View {
     public void clearBitmap() {
         cacheCanvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
     }
+
 }
 

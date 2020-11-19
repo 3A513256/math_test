@@ -16,7 +16,7 @@ public class WelComeActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(WelComeActivity.this, page1.class); //MainActivity為主要檔案名稱
+                Intent intent = new Intent(WelComeActivity.this, page1.class);
                 WelComeActivity.this.startActivity(intent);
                 WelComeActivity.this.finish();
             }

@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context="com.Beta.math_practice.setting_degree"
     android:background="@drawable/backimg">
 
@@ -12,10 +11,12 @@
         android:id="@+id/title"
         android:layout_width="253dp"
         android:layout_height="87dp"
-        android:layout_marginTop="88dp"
-        android:layout_marginEnd="79dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="1dp"
         android:scaleType="centerInside"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/title" />
 
@@ -23,11 +24,12 @@
         android:id="@+id/boybutton"
         android:layout_width="180dp"
         android:layout_height="180dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="116dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="1dp"
         android:background="@android:color/transparent"
-        android:scaleType="centerInside"
+        android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title"
         app:srcCompat="@drawable/boy" />
 
@@ -35,11 +37,15 @@
         android:id="@+id/girlbutton"
         android:layout_width="180dp"
         android:layout_height="180dp"
+        android:layout_marginStart="1dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="116dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="180dp"
         android:background="@android:color/transparent"
-        android:scaleType="centerInside"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/boybutton"
         app:srcCompat="@drawable/girl" />
 

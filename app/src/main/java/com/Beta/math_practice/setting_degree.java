@@ -50,19 +50,19 @@ public class setting_degree extends AppCompatActivity {
                 if (check == 1 && editText.length() != 0) {
                     setting.edit().putString("name_easy", name_input).commit();
                     Intent intent = new Intent();
-                    intent.setClass(setting_degree.this, MainActivity.class);
+                    intent.setClass(setting_degree.this, rule.class);
                     startActivity(intent);
                 }//簡單
                 if (check == 2 && editText.length() != 0) {
                     setting.edit().putString("name_mid", name_input).commit();
                     Intent intent = new Intent();
-                    intent.setClass(setting_degree.this, MainActivity.class);
+                    intent.setClass(setting_degree.this, rule.class);
                     startActivity(intent);
                 }//普通
                 if (check == 3 && editText.length() != 0) {
                     setting.edit().putString("name_hard", name_input).commit();
                     Intent intent = new Intent();
-                    intent.setClass(setting_degree.this, MainActivity.class);
+                    intent.setClass(setting_degree.this, rule.class);
                     startActivity(intent);
                 }//困難
             }

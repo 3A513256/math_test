@@ -6,9 +6,11 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -21,9 +23,9 @@ public class MainActivity extends AppCompatActivity {
 
     Button answer1, answer2, answer3, answer4, tip, prompt, draw;
     TextView score, question;
-    private Qusetion_mid mQuestions_mid = new Qusetion_mid();
-    private Qusetion_hard mQuestions_hard = new Qusetion_hard();
-    private Qusetion_easy mQuestions_easy = new Qusetion_easy();
+    private arithmetic mQuestions_mid = new arithmetic();
+    private plane_figure mQuestions_hard = new plane_figure();
+    private time mQuestions_easy = new time();
     private String mAnswer, mtip, mprompt;
     private int mScore = 0;
     private int Degree;
@@ -35,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> Answer3 = new ArrayList<String>(10);
     ArrayList<String> Answer4 = new ArrayList<String>(10);
     ArrayList<String> correct = new ArrayList<String>(10);
-    ArrayList<String> Tip = new ArrayList<String>(10);
     ArrayList<String> Prompt = new ArrayList<String>(10);
 
     @Override
@@ -55,10 +56,10 @@ public class MainActivity extends AppCompatActivity {
         score = findViewById(R.id.score);
         question = findViewById(R.id.question);
         score.setText("第" + time + "題" + "\n" + "\n" + "得分: 0");
-        tip.setText("基本提示");
-        prompt.setText("進階提示");
+        tip.setText("公式");
+        prompt.setText("提示");
         draw.setText("畫板");
-
+        question.setTextColor(Color.rgb(5, 15, 138));
         Typeface mytype = Typeface.createFromAsset(getAssets(), "jf.ttf");
 
         draw.setTypeface(mytype);
@@ -70,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         answer4.setTypeface(mytype);
         score.setTypeface(mytype);
         question.setTypeface(mytype);
-
+        question.setTextColor(Color.rgb(5, 15, 138));
         updateArrayList();
         updateQuestion(time - 1);
 
@@ -84,6 +85,9 @@ public class MainActivity extends AppCompatActivity {
                         .setPositiveButton("確定", null);
                 AlertDialog alertDialog = alertDialogBuilder.create();
                 alertDialog.show();
+                alertDialog.getWindow().getAttributes();
+                TextView textView = (TextView) alertDialog.findViewById(android.R.id.message);
+                textView.setTextSize(13);
             }
         });
 
@@ -176,7 +180,6 @@ public class MainActivity extends AppCompatActivity {
                 Answer3.add(mQuestions_mid.getChoice3(randomArray[i]));
                 Answer4.add(mQuestions_mid.getChoice4(randomArray[i]));
                 correct.add(mQuestions_mid.getCorrectAnswer(randomArray[i]));
-                Tip.add(mQuestions_mid.gettip(randomArray[i]));
                 Prompt.add(mQuestions_mid.getprompt(randomArray[i]));
             }
         }//普通
@@ -197,7 +200,6 @@ public class MainActivity extends AppCompatActivity {
                 Answer3.add(mQuestions_hard.getChoice3(randomArray[i]));
                 Answer4.add(mQuestions_hard.getChoice4(randomArray[i]));
                 correct.add(mQuestions_hard.getCorrectAnswer(randomArray[i]));
-                Tip.add(mQuestions_hard.gettip(randomArray[i]));
                 Prompt.add(mQuestions_hard.getprompt(randomArray[i]));
             }
         }//困難
@@ -218,7 +220,6 @@ public class MainActivity extends AppCompatActivity {
                 Answer3.add(mQuestions_easy.getChoice3(randomArray[i]));
                 Answer4.add(mQuestions_easy.getChoice4(randomArray[i]));
                 correct.add(mQuestions_easy.getCorrectAnswer(randomArray[i]));
-                Tip.add(mQuestions_easy.gettip(randomArray[i]));
                 Prompt.add(mQuestions_easy.getprompt(randomArray[i]));
             }
         }//簡單
@@ -232,7 +233,6 @@ public class MainActivity extends AppCompatActivity {
             answer3.setText(Answer3.get(num));
             answer4.setText(Answer4.get(num));
             mAnswer = correct.get(num);
-            mtip = Tip.get(num);
             mprompt = Prompt.get(num);
         }
 
@@ -243,7 +243,6 @@ public class MainActivity extends AppCompatActivity {
             answer3.setText(Answer3.get(num));
             answer4.setText(Answer4.get(num));
             mAnswer = correct.get(num);
-            mtip = Tip.get(num);
             mprompt = Prompt.get(num);
         }
 
@@ -254,8 +253,8 @@ public class MainActivity extends AppCompatActivity {
             answer3.setText(Answer3.get(num));
             answer4.setText(Answer4.get(num));
             mAnswer = correct.get(num);
-            mtip = Tip.get(num);
             mprompt = Prompt.get(num);
+            mtip = mQuestions_easy.formula();
         }
     }
 
@@ -278,46 +277,42 @@ public class MainActivity extends AppCompatActivity {
 
     private void gameNext_false() {
 
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
-        alertDialogBuilder
-                .setMessage("答錯了！")
-                .setCancelable(false)
-                .setPositiveButton("下一題", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        if (time < 10) {
-                            time++;
-                            updateQuestion(time - 1);
-                            score.setText("第" + time + "題" + "\n" + "\n" + "得分:" + mScore);
-                        } else {
-                            gameOver();
-                        }
-                    }
-                });
-        AlertDialog alertDialog = alertDialogBuilder.create();
-        alertDialog.show();
+        Intent intent = new Intent(this, true_or_false.class);
+        intent.putExtra("answer", 2); //答錯
+        startActivity(intent);
+        if (time < 10) {
+            time++;
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    //你想要延遲執行的程式碼
+                    updateQuestion(time - 1);
+                    score.setText("第" + time + "題" + "\n" + "\n" + "得分:" + mScore);
+                }
+            }, 500);
+        } else {
+            gameOver();
+        }
     }
 
     private void gameNext_true() {
 
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
-        alertDialogBuilder
-                .setMessage("答對了！")
-                .setCancelable(false)
-                .setPositiveButton("下一題", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        if (time < 10) {
-                            time++;
-                            updateQuestion(time - 1);
-                            score.setText("第" + time + "題" + "\n" + "\n" + "得分:" + mScore);
-                        } else {
-                            gameOver();
-                        }
-                    }
-                });
-        AlertDialog alertDialog = alertDialogBuilder.create();
-        alertDialog.show();
+        Intent intent = new Intent(this, true_or_false.class);
+        intent.putExtra("answer", 1);  //答對
+        startActivity(intent);
+        if (time < 10) {
+            time++;
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    //你想要延遲執行的程式碼
+                    updateQuestion(time - 1);
+                    score.setText("第" + time + "題" + "\n" + "\n" + "得分:" + mScore);
+                }
+            }, 500);
+        } else {
+            gameOver();
+        }
     }
 
     public boolean onKeyDown(int keyCode, KeyEvent event) {
