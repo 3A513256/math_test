@@ -1,7 +1,6 @@
 package com.Beta.math_practice;
 
 public class plane_figure {
-
     public String mQuestions[] = {
             "一個底為4公分、高8公分的平行四邊形經過切割、重新組合，可以組成什麼圖形？",
             "張爺爺的花園是一塊底為15公尺、高20公尺的平行四邊形，花園的面積是多少平方公尺？",

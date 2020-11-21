@@ -11,8 +11,6 @@ import android.graphics.PorterDuff;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.TextView;
-
 
 public class DrawView extends View {
     private Bitmap cacheBitmap;// 画纸

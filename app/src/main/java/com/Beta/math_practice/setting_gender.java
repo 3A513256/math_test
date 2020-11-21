@@ -8,11 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.TextView;
-
 
 public class setting_gender extends AppCompatActivity {
 
@@ -22,7 +18,6 @@ public class setting_gender extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting_gender);
-
         boy = findViewById(R.id.boybutton);
         girl = findViewById(R.id.girlbutton);
         boy.setOnClickListener(new View.OnClickListener() {

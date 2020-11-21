@@ -9,9 +9,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 
 public class DrawView_setting extends AppCompatActivity {
     @Override

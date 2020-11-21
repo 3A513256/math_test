@@ -13,13 +13,14 @@
         android:layout_width="210dp"
         android:layout_height="60dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="1dp"
         android:background="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/name"
-        app:srcCompat="@drawable/degree_title" />
+        app:srcCompat="@drawable/degree_title"
+        android:contentDescription="@string/todo" />
 
     <EditText
         android:id="@+id/name"
@@ -36,20 +37,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
-    <Button
-        android:id="@+id/confirm"
-        android:layout_width="132dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="120dp"
-        android:includeFontPadding="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hardButton" />
-
     <ImageButton
         android:id="@+id/easyButton"
         android:layout_width="189dp"
@@ -63,7 +50,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/degree_title"
-        app:srcCompat="@drawable/time" />
+        app:srcCompat="@drawable/time"
+        android:contentDescription="@string/todo" />
 
     <ImageButton
         android:id="@+id/hardButton"
@@ -76,7 +64,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/midButton"
-        app:srcCompat="@drawable/plane_figure" />
+        app:srcCompat="@drawable/plane_figure"
+        android:contentDescription="@string/todo" />
 
     <ImageButton
         android:id="@+id/midButton"
@@ -90,18 +79,19 @@
         app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/easyButton"
-        app:srcCompat="@drawable/arithmetic" />
+        app:srcCompat="@drawable/arithmetic"
+        android:contentDescription="@string/todo" />
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="120dp"
         android:layout_height="50dp"
         android:layout_marginStart="48dp"
-        android:layout_marginLeft="48dp"
         android:layout_marginTop="45dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/name" />
+        app:srcCompat="@drawable/name"
+        android:contentDescription="@string/todo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

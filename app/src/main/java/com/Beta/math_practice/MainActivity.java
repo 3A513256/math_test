@@ -1,9 +1,7 @@
 package com.Beta.math_practice;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -15,7 +13,6 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -234,6 +231,7 @@ public class MainActivity extends AppCompatActivity {
             answer4.setText(Answer4.get(num));
             mAnswer = correct.get(num);
             mprompt = Prompt.get(num);
+            mtip = mQuestions_hard.formula();
         }
 
         if (Degree == 1) {
@@ -244,6 +242,7 @@ public class MainActivity extends AppCompatActivity {
             answer4.setText(Answer4.get(num));
             mAnswer = correct.get(num);
             mprompt = Prompt.get(num);
+            mtip = mQuestions_mid.formula();
         }
 
         if (Degree == 2) {
