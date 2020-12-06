@@ -9,18 +9,14 @@
     tools:context="com.Beta.math_practice.setting_gender">
 
     <ImageView
-        android:id="@+id/degree_title"
-        android:layout_width="210dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="1dp"
-        android:background="@android:color/transparent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/imageView2"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="45dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name"
-        app:srcCompat="@drawable/degree_title"
-        android:contentDescription="@string/todo" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/name" />
 
     <EditText
         android:id="@+id/name"
@@ -37,6 +33,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
+    <ImageView
+        android:id="@+id/degree_title"
+        android:layout_width="210dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="1dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name"
+        app:srcCompat="@drawable/degree_title" />
+
     <ImageButton
         android:id="@+id/easyButton"
         android:layout_width="189dp"
@@ -45,27 +54,11 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="1dp"
         android:background="@android:color/transparent"
-
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/degree_title"
-        app:srcCompat="@drawable/time"
-        android:contentDescription="@string/todo" />
-
-    <ImageButton
-        android:id="@+id/hardButton"
-        android:layout_width="199dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="1dp"
-        android:background="@android:color/transparent"
-        android:scaleType="fitCenter"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/midButton"
-        app:srcCompat="@drawable/plane_figure"
-        android:contentDescription="@string/todo" />
+        app:srcCompat="@drawable/time" />
 
     <ImageButton
         android:id="@+id/midButton"
@@ -79,19 +72,20 @@
         app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/easyButton"
-        app:srcCompat="@drawable/arithmetic"
-        android:contentDescription="@string/todo" />
+        app:srcCompat="@drawable/arithmetic" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="120dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="45dp"
+    <ImageButton
+        android:id="@+id/hardButton"
+        android:layout_width="199dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="1dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/name"
-        android:contentDescription="@string/todo" />
+        app:layout_constraintTop_toBottomOf="@+id/midButton"
+        app:srcCompat="@drawable/plane_figure" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

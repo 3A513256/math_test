@@ -1,6 +1,7 @@
 package com.Beta.math_practice;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,6 +14,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -27,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private int mScore = 0;
     private int Degree;
     private int time = 1;
-
+    private int mprompt_check = 0;
     ArrayList<String> Questions = new ArrayList<String>(10);
     ArrayList<String> Answer1 = new ArrayList<String>(10);
     ArrayList<String> Answer2 = new ArrayList<String>(10);
@@ -91,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
         prompt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mprompt_check=1;
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
                 alertDialogBuilder
                         .setMessage(mprompt)
@@ -98,6 +101,9 @@ public class MainActivity extends AppCompatActivity {
                         .setPositiveButton("確定", null);
                 AlertDialog alertDialog = alertDialogBuilder.create();
                 alertDialog.show();
+                alertDialog.getWindow().getAttributes();
+                TextView textView = (TextView) alertDialog.findViewById(android.R.id.message);
+                textView.setTextSize(13);
             }
         });
 
@@ -105,7 +111,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (answer1.getText() == mAnswer) {
-                    mScore++;
+                    if (mprompt_check == 1) {
+                        mScore = mScore + 5;
+                    } else mScore = mScore + 10;
                     gameNext_true();
                 } else {
                     gameNext_false();
@@ -116,7 +124,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (answer2.getText() == mAnswer) {
-                    mScore++;
+                    if (mprompt_check == 1) {
+                        mScore = mScore + 5;
+                    } else mScore = mScore + 10;
                     gameNext_true();
                 } else {
                     gameNext_false();
@@ -127,7 +137,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (answer3.getText() == mAnswer) {
-                    mScore++;
+                    if (mprompt_check == 1) {
+                        mScore = mScore + 5;
+                    } else mScore = mScore + 10;
                     gameNext_true();
                 } else {
                     gameNext_false();
@@ -138,7 +150,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (answer4.getText() == mAnswer) {
-                    mScore++;
+                    if (mprompt_check == 1) {
+                        mScore = mScore + 5;
+                    } else mScore = mScore + 10;
                     gameNext_true();
                 } else {
                     gameNext_false();
@@ -179,7 +193,7 @@ public class MainActivity extends AppCompatActivity {
                 correct.add(mQuestions_mid.getCorrectAnswer(randomArray[i]));
                 Prompt.add(mQuestions_mid.getprompt(randomArray[i]));
             }
-        }//普通
+        }//四則
         if (Degree == 1) {
             int[] randomArray = new int[10];
             Random rnd = new Random();
@@ -199,7 +213,7 @@ public class MainActivity extends AppCompatActivity {
                 correct.add(mQuestions_hard.getCorrectAnswer(randomArray[i]));
                 Prompt.add(mQuestions_hard.getprompt(randomArray[i]));
             }
-        }//困難
+        }//平面
         if (Degree == 2) {
             int[] randomArray = new int[10];
             Random rnd = new Random();  //產生亂數初始值
@@ -219,7 +233,7 @@ public class MainActivity extends AppCompatActivity {
                 correct.add(mQuestions_easy.getCorrectAnswer(randomArray[i]));
                 Prompt.add(mQuestions_easy.getprompt(randomArray[i]));
             }
-        }//簡單
+        }//時間
     }
 
     private void updateQuestion(int num) {
@@ -231,7 +245,7 @@ public class MainActivity extends AppCompatActivity {
             answer4.setText(Answer4.get(num));
             mAnswer = correct.get(num);
             mprompt = Prompt.get(num);
-            mtip = mQuestions_hard.formula();
+            mtip = mQuestions_mid.formula();
         }
 
         if (Degree == 1) {
@@ -242,7 +256,7 @@ public class MainActivity extends AppCompatActivity {
             answer4.setText(Answer4.get(num));
             mAnswer = correct.get(num);
             mprompt = Prompt.get(num);
-            mtip = mQuestions_mid.formula();
+            mtip = mQuestions_hard.formula();
         }
 
         if (Degree == 2) {
@@ -257,27 +271,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void gameOver() {
-        SharedPreferences score = getSharedPreferences("score", 0);
-        if (Degree == 2) {
-            score.edit().putInt("lastScore_easy", mScore).apply();
-        }
-        if (Degree == 1) {
-            score.edit().putInt("lastScore_hard", mScore).apply();
-        }
-        if (Degree == 0) {
-            score.edit().putInt("lastScore_mid", mScore).apply();
-        }
-        Intent intent = new Intent();
-        intent.setClass(MainActivity.this, BestActivity.class);
-        startActivity(intent);
-        finish();
-    }
-
     private void gameNext_false() {
-
+        mprompt_check--;
         Intent intent = new Intent(this, true_or_false.class);
+        intent.putExtra("answers", mAnswer);
         intent.putExtra("answer", 2); //答錯
+        intent.putExtra("mScore", mScore);
+        intent.putExtra("time", time);
         startActivity(intent);
         if (time < 10) {
             time++;
@@ -289,15 +289,16 @@ public class MainActivity extends AppCompatActivity {
                     score.setText("第" + time + "題" + "\n" + "\n" + "得分:" + mScore);
                 }
             }, 500);
-        } else {
-            gameOver();
         }
     }
 
     private void gameNext_true() {
-
+        mprompt_check--;
         Intent intent = new Intent(this, true_or_false.class);
+        intent.putExtra("answers", mAnswer);
         intent.putExtra("answer", 1);  //答對
+        intent.putExtra("mScore", mScore);
+        intent.putExtra("time", time);
         startActivity(intent);
         if (time < 10) {
             time++;
@@ -309,8 +310,6 @@ public class MainActivity extends AppCompatActivity {
                     score.setText("第" + time + "題" + "\n" + "\n" + "得分:" + mScore);
                 }
             }, 500);
-        } else {
-            gameOver();
         }
     }
 

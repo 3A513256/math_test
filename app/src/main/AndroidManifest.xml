@@ -21,6 +21,11 @@
         </activity>
 
         <activity
+            android:name=".PuzzleActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
             android:name=".start"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -54,6 +59,10 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".DrawView_setting"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MainActivity_puzzle"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>

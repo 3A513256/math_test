@@ -14,7 +14,6 @@ import android.widget.Toast;
 
 public class setting_degree extends AppCompatActivity {
 
-    String name_input = "";
     EditText editText;
     ImageButton easy, hard, mid;
 
@@ -33,8 +32,8 @@ public class setting_degree extends AppCompatActivity {
                     Toast.makeText(setting_degree.this, "請輸入使用者名稱", Toast.LENGTH_SHORT).show();
                 } else {
                     SharedPreferences setting = getSharedPreferences("setting", MODE_PRIVATE);
-                    setting.edit().putInt("degree", 2).commit();
-                    setting.edit().putString("name_easy", name_input).commit();
+                    setting.edit().putInt("degree", 2).apply();
+                    setting.edit().putString("name_easy", editText.getText().toString()).apply();
                     Intent intent = new Intent();
                     intent.setClass(setting_degree.this, rule.class);
                     startActivity(intent);
@@ -48,8 +47,8 @@ public class setting_degree extends AppCompatActivity {
                     Toast.makeText(setting_degree.this, "請輸入使用者名稱", Toast.LENGTH_SHORT).show();
                 } else {
                     SharedPreferences setting = getSharedPreferences("setting", MODE_PRIVATE);
-                    setting.edit().putInt("degree", 0).commit();
-                    setting.edit().putString("name_mid", name_input).commit();
+                    setting.edit().putInt("degree", 0).apply();
+                    setting.edit().putString("name_mid", editText.getText().toString()).apply();
                     Intent intent = new Intent();
                     intent.setClass(setting_degree.this, rule.class);
                     startActivity(intent);
@@ -63,8 +62,8 @@ public class setting_degree extends AppCompatActivity {
                     Toast.makeText(setting_degree.this, "請輸入使用者名稱", Toast.LENGTH_SHORT).show();
                 } else {
                     SharedPreferences setting = getSharedPreferences("setting", MODE_PRIVATE);
-                    setting.edit().putInt("degree", 1).commit();
-                    setting.edit().putString("name_hard", name_input).commit();
+                    setting.edit().putInt("degree", 1).apply();
+                    setting.edit().putString("name_hard", editText.getText().toString()).apply();
                     Intent intent = new Intent();
                     intent.setClass(setting_degree.this, rule.class);
                     startActivity(intent);
