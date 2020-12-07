@@ -72,11 +72,10 @@ public class true_or_false extends AppCompatActivity {
         if (Degree == 0) {
             score.edit().putInt("lastScore_mid", mScore).apply();
         }
-        if (mScore<70){
-            intent.setClass(true_or_false.this,BestActivity.class);
-        }
-        else
-        intent.setClass(true_or_false.this, MainActivity_puzzle.class);
+        if (mScore < 70) {
+            intent.setClass(true_or_false.this, BestActivity.class);
+        } else
+            intent.setClass(true_or_false.this, MainActivity_puzzle.class);
         startActivity(intent);
         finish();
     }

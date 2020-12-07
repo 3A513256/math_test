@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
         prompt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mprompt_check=1;
+                mprompt_check = 1;
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
                 alertDialogBuilder
                         .setMessage(mprompt)
