@@ -233,7 +233,6 @@ public class BestActivity extends AppCompatActivity {
         });
     }
 
-
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             if (getApplicationInfo().targetSdkVersion >= Build.VERSION_CODES.ECLAIR) {

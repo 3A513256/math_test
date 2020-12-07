@@ -47,7 +47,7 @@
         app:srcCompat="@drawable/degree_title" />
 
     <ImageButton
-        android:id="@+id/easyButton"
+        android:id="@+id/timeButton"
         android:layout_width="189dp"
         android:layout_height="75dp"
         android:layout_marginStart="1dp"
@@ -61,7 +61,7 @@
         app:srcCompat="@drawable/time" />
 
     <ImageButton
-        android:id="@+id/midButton"
+        android:id="@+id/arithmeticButton"
         android:layout_width="208dp"
         android:layout_height="73dp"
         android:layout_marginStart="90dp"
@@ -71,11 +71,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/easyButton"
+        app:layout_constraintTop_toBottomOf="@+id/timeButton"
         app:srcCompat="@drawable/arithmetic" />
 
     <ImageButton
-        android:id="@+id/hardButton"
+        android:id="@+id/plane_figureButton"
         android:layout_width="199dp"
         android:layout_height="70dp"
         android:layout_marginStart="10dp"
@@ -84,7 +84,7 @@
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/midButton"
+        app:layout_constraintTop_toBottomOf="@+id/arithmeticButton"
         app:srcCompat="@drawable/plane_figure" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

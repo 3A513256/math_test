@@ -15,17 +15,17 @@ import android.widget.Toast;
 public class setting_degree extends AppCompatActivity {
 
     EditText editText;
-    ImageButton easy, hard, mid;
+    ImageButton time, plane_figure, arithmetic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting_degree);
         editText = findViewById(R.id.name);
-        easy = findViewById(R.id.easyButton);
-        hard = findViewById(R.id.hardButton);
-        mid = findViewById(R.id.midButton);
-        easy.setOnClickListener(new View.OnClickListener() {
+        time = findViewById(R.id.timeButton);
+        plane_figure = findViewById(R.id.plane_figureButton);
+        arithmetic = findViewById(R.id.arithmeticButton);
+        time.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {//時間
                 if (editText.getText().toString().length() == 0) {
@@ -40,7 +40,7 @@ public class setting_degree extends AppCompatActivity {
                 }
             }
         });
-        mid.setOnClickListener(new View.OnClickListener() {
+        arithmetic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {//四則運算
                 if (editText.getText().toString().length() == 0) {
@@ -55,7 +55,7 @@ public class setting_degree extends AppCompatActivity {
                 }
             }
         });
-        hard.setOnClickListener(new View.OnClickListener() {
+        plane_figure.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {//平面圖形
                 if (editText.getText().toString().length() == 0) {
